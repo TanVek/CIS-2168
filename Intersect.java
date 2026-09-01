@@ -22,20 +22,34 @@ public class Intersect {
         return true;
     }
     static int[] intersect(int[] list1, int[] list2){
-        int[] newList; 
+        int[] newList= new int[0];
         for(int num : list1 ){
             for(int num2 : list2){
-                if(num == num2)
-                    newList.
-                    
+                if(num == num2){
+                    newList = Arrays.copyOf(newList, newList.length + 1);
+                    newList[newList.length-1] = num;
+                }
             }
         }
+        return newList;
     }
-    for(int i : list1)
+    static void printArray(int[] arr){
+        System.out.print("[" + arr[0]);
+        for(int i = 1; i < arr.length; i++){
+            System.out.print(", " + arr[i]);
+        }
+        System.out.println("]");
+    }
     public static void main(String[] args){
-        //Test the isSorted function
+        //Test the isSorted function 
         int[] list1 = {1, 4, 8, 9, 11, 15, 17, 28, 41, 59};
+        int[] list2 = {4, 7, 11, 17, 19, 20, 23, 28, 37, 59, 81};
         if(isSorted(list1)) System.out.println("Test Successful");
+        int[] list3 = intersect(list1, list2);
+        printArray(list1);
+        printArray(list2);
+        printArray(list3);
+        
     }
 }
 
